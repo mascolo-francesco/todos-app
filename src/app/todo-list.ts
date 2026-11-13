@@ -33,7 +33,7 @@ export class TodoList {
   filtro = signal('');
 
   filtrati = computed(() =>
-    this.service.todos().filter(t => t.title.includes(this.filtro()))
+    this.service.todos().filter(t => t.title.toLowerCase().includes(this.filtro().toLowerCase()))
   );
 
   completati = computed(() =>

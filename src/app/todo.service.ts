@@ -47,6 +47,7 @@ export class TodoService {
   }
 
   crea(title: string) {
+    if (title.trim() === '') return; // niente todo vuoti
     const nuovo = { userId: 1, title, completed: false };
     this.http.post<Todo>(this.url, nuovo).subscribe({
       next: creato => this._todos.update(lista => [creato, ...lista]),
